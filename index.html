@@ -2,179 +2,223 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Untuk Kaka Noki ❤️</title>
-
-  <!-- Font romantis: Dancing Script -->
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galaksi Imajinasi 3.0</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
   <style>
-    html, body {
+    :root {
+      --primary: #00ffff;
+      --bg-dark: #080b1d;
+      --text-light: #e0e0e0;
+      --text-dark: #202020;
+    }
+    * {
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
-      background: pink;
-      font-family: 'Dancing Script', cursive;
-      font-weight: 700;
-      position: relative;
-    }
-
-    .centered {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      z-index: 10;
-      width: 90%;
-      color: black;
-      padding: 0 10px;
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
-
-    .typewriter-line {
-      font-size: 2.5em;
-      color: black;
-      display: block;
-      width: 100%;
-      white-space: normal;
-      overflow-wrap: break-word;
-      animation: typing 0.5s steps(40, end) 1 forwards;
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+    header {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3em;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 4s ease-in-out infinite alternate;
+    }
+    header p {
+      margin-top: 18px;
+      font-size: 1em;
+      color: #bbb;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px 10px;
+      background: rgba(0, 0, 0, 0.5);
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95em;
+      padding: 4px 10px;
+    }
+    nav a:hover {
+      background-color: rgba(0,255,255,0.1);
+      border-radius: 6px;
+    }
+    section {
+      padding: 60px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      justify-content: center;
       opacity: 0;
+      transform: translateY(20px);
+      transition: 0.8s ease;
     }
-
-    @keyframes typing {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
+    section.active {
+      opacity: 1;
+      transform: translateY(0);
     }
-
-    .balloon {
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: 0.3s;
+      width: 280px;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,0.08);
+    }
+    .card h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+    }
+    .card p {
+      font-size: 0.95em;
+      color: #ccc;
+    }
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #00ffff;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      background: #0d0d0d;
+      color: #aaa;
+      font-size: 0.9em;
+    }
+    canvas {
       position: fixed;
-      bottom: -80px;
-      width: 80px;
-      height: 100px;
-      background-image: url('https://raw.githubusercontent.com/Bang1239/Bang1239.github.io/935cacc3d21c380ffbaf5bc7543ead773a74e2a3/ChatGPT_Image_Jun_5__2025__12_16_54_AM-removebg-preview.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      pointer-events: none;
-      animation-timing-function: linear;
-      z-index: 5;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      z-index: -1;
     }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-110vh) scale(1.1);
-        opacity: 0;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .typewriter-line {
-        font-size: 1.8em;
-      }
-
-      .balloon {
-        width: 60px;
-        height: 80px;
-      }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #0ff; }
+      to { text-shadow: 0 0 25px #0ff, 0 0 50px #0072ff; }
     }
   </style>
 </head>
 <body>
+  <canvas id="stars"></canvas>
+  <header>
+    <h1>Galaksi Imajinasi 3.0</h1>
+    <p>Portal eksplorasi AI, game, dan teknologi dalam satu dimensi baru.</p>
+  </header>
+  <nav>
+    <a href="halaman/portal.html">Portal</a>
+    <a href="halaman/ai.html">AI</a>
+    <a href="halaman/game.html">Game</a>
+    <a href="halaman/sinyal.html">Sinyal</a>
+  </nav>
 
-  <div class="centered">
-    <div id="message"></div>
-  </div>
+  <section class="active">
+    <div class="card">
+      <h3>🚀 Portal Dimensi</h3>
+      <p>Melompat antar dunia dalam sekali klik.</p>
+      <a href="halaman/portal.html">Masuk Portal</a>
+    </div>
+    <div class="card">
+      <h3>🌀 Efek Warp</h3>
+      <p>Simulasi space-time seperti film fiksi ilmiah.</p>
+      <a href="halaman/portal.html#w">Coba Warp</a>
+    </div>
+    <div class="card">
+      <h3>🤖 Chat AI</h3>
+      <p>Berinteraksi langsung dengan AI pintar.</p>
+      <a href="halaman/ai.html">Chat Sekarang</a>
+    </div>
+    <div class="card">
+      <h3>🎨 Generator Gambar</h3>
+      <p>Ketik kata, hasilkan visual otomatis.</p>
+      <a href="halaman/ai.html#gen">Coba Generator</a>
+    </div>
+    <div class="card">
+      <h3>🎮 Galactic Memory</h3>
+      <p>Permainan luar angkasa uji ingatanmu.</p>
+      <a href="halaman/game.html">Mainkan</a>
+    </div>
+    <div class="card">
+      <h3>📡 Sinyal Misterius</h3>
+      <p>Deteksi pesan dari kosmos tiap malam.</p>
+      <a href="halaman/sinyal.html">Deteksi Sekarang</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Galaksi Imajinasi 3.0 - Dibuat oleh AI</p>
+  </footer>
 
   <script>
-    const messageGroups = [
-      [
-        "Selamat Pagi, Kaka Noki",
-        "Pagi datang membawa cahaya,",
-        "tapi tak sehangat hadirmu di jiwa."
-      ],
-      [
-        "Langit biru belum sempurna,",
-        "tanpa senyummu yang aku cinta.",
-        "Kaka Noki, semoga pagi ini indah,"
-      ],
-      [
-        "seindah hatimu yang selalu ramah.",
-        "Setiap detik yang aku lewati,",
-        "selalu ada kamu di dalam hati."
-      ],
-      [
-        "Kopi mungkin bisa menghangatkan,",
-        "tapi sapamu lebih menenangkan.",
-        "Jangan lupa sarapan yang bergizi,"
-      ],
-      [
-        "biar harimu berjalan penuh energi.",
-        "Hari ini, aku titip rindu yang sederhana,",
-        "dibungkus doa tanpa banyak kata."
-      ],
-      [
-        "Selamat pagi, Kaka Noki tercinta,",
-        "semoga bahagia selalu menyertaimu",
-        "sepanjang langkahnya."
-      ]
-    ];
-
-    const messageDiv = document.getElementById("message");
-    let groupIndex = 0;
-
-    function typeLines(lines, i = 0) {
-      if (i >= lines.length) {
-        setTimeout(() => {
-          groupIndex = (groupIndex + 1) % messageGroups.length;
-          messageDiv.innerHTML = '';
-          typeLines(messageGroups[groupIndex]);
-        }, 4000);
-        return;
-      }
-
-      const line = document.createElement('div');
-      line.classList.add('typewriter-line');
-      messageDiv.appendChild(line);
-
-      let charIndex = 0;
-
-      function typeChar() {
-        if (charIndex <= lines[i].length) {
-          line.textContent = lines[i].substring(0, charIndex);
-          charIndex++;
-          setTimeout(typeChar, 40);
-        } else {
-          line.style.opacity = 1;
-          setTimeout(() => typeLines(lines, i + 1), 600);
-        }
-      }
-
-      typeChar();
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
-
-    typeLines(messageGroups[groupIndex]);
-
-    // Balon terbang
-    function createBalloon() {
-      const balloon = document.createElement('div');
-      balloon.classList.add('balloon');
-      balloon.style.left = Math.random() * 90 + 'vw';
-      const duration = 5000 + Math.random() * 5000;
-      balloon.style.animation = `floatUp ${duration}ms linear forwards`;
-      document.body.appendChild(balloon);
-      setTimeout(() => {
-        balloon.remove();
-      }, duration);
+    function initStars() {
+      stars = [];
+      for (let i = 0; i < 400; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.2,
+          a: Math.random(),
+          dx: (Math.random() - 0.5) * 0.3,
+          dy: (Math.random() - 0.5) * 0.3
+        });
+      }
     }
-
-    setInterval(createBalloon, 400);
+    function drawStars() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${s.a})`;
+        ctx.fill();
+        s.x += s.dx;
+        s.y += s.dy;
+        if (s.x < 0 || s.x > canvas.width) s.dx *= -1;
+        if (s.y < 0 || s.y > canvas.height) s.dy *= -1;
+      });
+    }
+    function animate() {
+      drawStars();
+      requestAnimationFrame(animate);
+    }
+    resizeCanvas();
+    initStars();
+    animate();
+    window.addEventListener('resize', () => {
+      resizeCanvas();
+      initStars();
+    });
   </script>
-
 </body>
 </html>
