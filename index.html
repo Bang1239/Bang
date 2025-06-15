@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portofolio Bang Surya Jaya - Digital Artist & Designer</title>
-  <meta name="description" content="Portfolio of Bang Surya Jaya, a talented digital artist and designer from Indonesia specializing in pixel art and immersive illustrations.">
-  <meta name="keywords" content="portofolio bang surya jaya, bang surya jaya, digital artist, pixel art, designer indonesia">
-  <meta name="author" content="Bang Surya Jaya">
-  <meta name="robots" content="index, follow">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Portfolio of Bang Surya Jaya, a talented digital artist and designer from Indonesia specializing in pixel art and immersive illustrations." />
+  <meta name="keywords" content="portofolio bang surya jaya, bang surya jaya, digital artist, pixel art, designer indonesia" />
+  <meta name="author" content="Bang Surya Jaya" />
+  <meta name="robots" content="index, follow" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body {
       font-family: 'Roboto', sans-serif;
@@ -26,10 +24,8 @@
     }
     #particles-js {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       z-index: -1;
     }
     header {
@@ -85,15 +81,13 @@
       opacity: 1;
       transform: translateY(0);
     }
-#about h2,
-#work h2,
-#contact h2 {
-  text-align: center;
-  width: 100%;
-  margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
-}
-
-
+    #about h2,
+    #work h2,
+    #contact h2 {
+      text-align: center;
+      width: 100%;
+      margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+    }
     #about {
       display: flex;
       align-items: center;
@@ -121,6 +115,8 @@
       object-fit: cover;
       position: relative;
       z-index: 1;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #1e3a8a;
     }
     .work-grid {
       display: grid;
@@ -134,6 +130,7 @@
       border-radius: 6px;
       background: #4b5563;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
     .project img {
       width: 100%;
@@ -141,13 +138,15 @@
       object-fit: cover;
       display: block;
       loading: lazy;
+      transition: transform 0.3s ease;
+    }
+    .project:hover img {
+      transform: scale(1.05);
     }
     .project-overlay {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: rgba(0, 0, 0, 0.7);
       color: #d1d5db;
       display: flex;
@@ -156,6 +155,8 @@
       align-items: center;
       opacity: 0;
       transition: opacity 0.3s ease;
+      padding: 1rem;
+      text-align: center;
     }
     .project:hover .project-overlay {
       opacity: 1;
@@ -176,6 +177,8 @@
       border-radius: 4px;
       transition: background 0.3s ease;
       font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+      display: inline-block;
+      margin-top: 0.5rem;
     }
     .project-overlay a:hover {
       background: #1e3a8a;
@@ -207,7 +210,7 @@
       position: relative;
       z-index: 1;
     }
-    /* Minimal media queries to maintain consistent layout */
+    /* Responsive tweaks */
     @media (max-width: 768px) {
       #about {
         justify-content: space-between;
@@ -242,7 +245,7 @@
       <h2>About Me</h2>
       <div style="display: flex; flex-direction: row-reverse; align-items: center; gap: 10px;">
         <div class="photo-container">
-          <img src="https://github.com/Bang1239/Bang/blob/main/file_0000000086fc61f89ce3c83ed261aee2__1_-removebg-preview.png?raw=true" alt="Bang Surya Jaya Profile Photo" class="profile-photo" loading="lazy">
+          <img src="https://github.com/Bang1239/Bang/blob/main/file_0000000086fc61f89ce3c83ed261aee2__1_-removebg-preview.png?raw=true" alt="Bang Surya Jaya Profile Photo" class="profile-photo" loading="lazy" />
         </div>
         <p>I am Bang Surya Jaya, a dedicated digital artist and designer from Indonesia. Specializing in pixel art and immersive illustrations, I create bold and innovative designs that push creative boundaries. My portfolio showcases my expertise in delivering visually impactful artwork. Explore my portfolio to see my latest projects.</p>
       </div>
@@ -251,63 +254,63 @@
       <h2>My Work</h2>
       <div class="work-grid">
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2022/06/23/17/08/pixel-art-7280249_1280.png" alt="Pixel Cityscape by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2022/06/23/17/08/pixel-art-7280249_1280.png" alt="Pixel Cityscape by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>Pixel Cityscape</h3>
             <a href="#">View Project</a>
           </div>
         </div>
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2025/05/10/15/40/bear-9591466_1280.jpg" alt="Bear Illustration by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2025/05/10/15/40/bear-9591466_1280.jpg" alt="Bear Illustration by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>Bear Illustration</h3>
             <a href="#">View Project</a>
           </div>
         </div>
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2024/04/18/08/05/girl-8703774_1280.png" alt="Character Portrait by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2024/04/18/08/05/girl-8703774_1280.png" alt="Character Portrait by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>Character Portrait</h3>
             <a href="#">View Project</a>
           </div>
         </div>
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2023/02/04/14/18/underwater-7767303_1280.jpg" alt="Underwater Scene by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2023/02/04/14/18/underwater-7767303_1280.jpg" alt="Underwater Scene by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>Underwater Scene</h3>
             <a href="#">View Project</a>
           </div>
         </div>
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2025/04/26/19/45/mount-fuji-9561799_1280.jpg" alt="Mount Fuji Landscape by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2025/04/26/19/45/mount-fuji-9561799_1280.jpg" alt="Mount Fuji Landscape by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>Mount Fuji Landscape</h3>
             <a href="#">View Project</a>
           </div>
         </div>
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2025/05/02/07/28/panorama-9573161_1280.jpg" alt="City Panorama by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2025/05/02/07/28/panorama-9573161_1280.jpg" alt="City Panorama by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>City Panorama</h3>
             <a href="#">View Project</a>
           </div>
         </div>
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2023/03/12/08/02/astronaut-7846067_1280.jpg" alt="Astronaut Illustration by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2023/03/12/08/02/astronaut-7846067_1280.jpg" alt="Astronaut Illustration by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>Astronaut Illustration</h3>
             <a href="#">View Project</a>
           </div>
         </div>
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2024/12/18/10/10/tree-9274973_1280.png" alt="Stylized Tree Art by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2024/12/18/10/10/tree-9274973_1280.png" alt="Stylized Tree Art by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>Stylized Tree Art</h3>
             <a href="#">View Project</a>
           </div>
         </div>
         <div class="project">
-          <img src="https://cdn.pixabay.com/photo/2025/03/30/13/01/fairy-tale-9502808_1280.jpg" alt="Fairy Tale Scene by Bang Surya Jaya" loading="lazy">
+          <img src="https://cdn.pixabay.com/photo/2025/03/30/13/01/fairy-tale-9502808_1280.jpg" alt="Fairy Tale Scene by Bang Surya Jaya" loading="lazy" />
           <div class="project-overlay">
             <h3>Fairy Tale Scene</h3>
             <a href="#">View Project</a>
@@ -317,12 +320,13 @@
     </section>
     <section id="contact">
       <h2>Contact</h2>
-      <p>Let's create something amazing together! Reach me at <a href="mailto:bangsuryajaya548@gmail.com">bangsuryajaya548@gmail.com</a> or on <a href="https://www.linkedin.com/in/bang-surya-jaya-5608ba251" target="_blank">LinkedIn</a>.</p>
+      <p>Let's create something amazing together! Reach me at <a href="mailto:bangsuryajaya548@gmail.com">bangsuryajaya548@gmail.com</a> or on <a href="https://www.linkedin.com/in/bang-surya-jaya-5608ba251" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
     </section>
   </div>
   <footer>
     <p>© 2025 Bang Surya Jaya. All rights reserved.</p>
   </footer>
+
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     particlesJS('particles-js', {
@@ -370,7 +374,9 @@
         e.preventDefault();
         const targetId = this.getAttribute('href').substring(1);
         const targetElement = document.getElementById(targetId);
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
       });
     });
 
@@ -385,20 +391,21 @@
     }, { threshold: 0.1 });
     sections.forEach(section => observer.observe(section));
   </script>
+
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Bang Surya Jaya",
-      "jobTitle": "Digital Artist and Designer",
-      "description": "Bang Surya Jaya is a digital artist and designer from Indonesia, specializing in pixel art and immersive illustrations.",
-      "url": "https://bangsuryajaya.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/bang-surya-jaya-5608ba251"
-      ],
-      "image": "https://github.com/Bang1239/Bang/blob/main/file_0000000086fc61f89ce3c83ed261aee2__1_-removebg-preview.png?raw=true",
-      "email": "bangsuryajaya548@gmail.com"
-    }
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bang Surya Jaya",
+    "jobTitle": "Digital Artist and Designer",
+    "description": "Bang Surya Jaya is a digital artist and designer from Indonesia, specializing in pixel art and immersive illustrations.",
+    "url": "https://bangsuryajaya.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/bang-surya-jaya-5608ba251"
+    ],
+    "image": "https://github.com/Bang1239/Bang/blob/main/file_0000000086fc61f89ce3c83ed261aee2__1_-removebg-preview.png?raw=true",
+    "email": "bangsuryajaya548@gmail.com"
+  }
   </script>
 </body>
 </html>
