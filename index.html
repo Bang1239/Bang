@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1200, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Portofolio Bang Surya Jaya - Digital Artist & Designer</title>
   <meta name="description" content="Portfolio of Bang Surya Jaya, a talented digital artist and designer from Indonesia specializing in pixel art and immersive illustrations." />
   <meta name="keywords" content="portofolio bang surya jaya, bang surya jaya, digital artist, pixel art, designer indonesia" />
@@ -21,8 +21,8 @@
       line-height: 1.6;
       background: linear-gradient(to bottom, #0a0a1a, #1a1a2e);
       position: relative;
-      overflow-x: auto;
       min-height: 100vh;
+      overflow-x: hidden;
     }
     #particles-js {
       position: fixed;
@@ -74,7 +74,7 @@
       padding: 1.5rem 0.8rem;
       position: relative;
       z-index: 1;
-      overflow-x: auto;
+      transform-origin: top left;
     }
     section {
       margin-bottom: 2rem;
@@ -135,7 +135,6 @@
       gap: 15px;
       justify-content: center;
       padding: 10px;
-      min-width: 900px; /* Pastikan 3 kolom tetap muat */
     }
     .work-item {
       width: 100%;
@@ -349,13 +348,13 @@
       </div>
     </section>
     <section id="resume">
-      <h2>Resume</h2>
-      <p>Download my resume to learn more about my experience and skills as a digital artist and designer. <a href="https://example.com/resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a></p>
-    </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Let's create something amazing together! Reach me at <a href="mailto:bangsuryajaya548@gmail.com">bangsuryajaya548@gmail.com</a> or on <a href="https://www.linkedin.com/in/bang-surya-jaya-5608ba251" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
-    </section>
+  <h2>Resume</h2>
+  <p>Download my resume to learn more about my experience and skills as a digital artist and designer. <a href="https://example.com/resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a></p>
+</section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Let's create something amazing together! Reach me at <a href="mailto:bangsuryajaya548@gmail.com">bangsuryajaya548@gmail.com</a> or on <a href="https://www.linkedin.com/in/bang-surya-jaya-5608ba251" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+</section>
   </div>
   <footer>
     <p>© 2025 Bang Surya Jaya. All rights reserved.</p>
@@ -363,6 +362,22 @@
 
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
+    // Scaling untuk menyesuaikan konten ke layar HP
+    function adjustScale() {
+      const content = document.querySelector('.content');
+      const windowWidth = window.innerWidth;
+      const targetWidth = 1200; // Lebar asli konten (sama dengan laptop)
+      const scale = Math.min(windowWidth / targetWidth, 1); // Skala berdasarkan lebar layar
+      content.style.transform = `scale(${scale})`;
+      content.style.width = `${targetWidth}px`;
+      document.body.style.overflowX = 'hidden'; // Cegah horizontal scroll
+    }
+
+    // Jalankan saat load dan resize
+    window.addEventListener('load', adjustScale);
+    window.addEventListener('resize', adjustScale);
+
+    // Particles.js
     particlesJS('particles-js', {
       particles: {
         number: { value: 15, density: { enable: true, value_area: 800 } },
@@ -402,6 +417,7 @@
       retina_detect: true
     });
 
+    // Smooth scroll untuk navigasi
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -413,6 +429,7 @@
       });
     });
 
+    // Animasi saat section masuk viewport
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
