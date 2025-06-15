@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=1200, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Portofolio Bang Surya Jaya - Digital Artist & Designer</title>
   <meta name="description" content="Portfolio of Bang Surya Jaya, a talented digital artist and designer from Indonesia specializing in pixel art and immersive illustrations." />
   <meta name="keywords" content="portofolio bang surya jaya, bang surya jaya, digital artist, pixel art, designer indonesia" />
@@ -11,7 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     body {
       font-family: 'Roboto', sans-serif;
@@ -19,30 +21,32 @@
       line-height: 1.6;
       background: linear-gradient(to bottom, #0a0a1a, #1a1a2e);
       position: relative;
-      overflow-x: hidden;
+      overflow-x: auto;
       min-height: 100vh;
     }
     #particles-js {
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       z-index: -1;
     }
     header {
       text-align: center;
-      padding: clamp(1rem, 2vw, 1.5rem);
+      padding: 1.5rem;
       position: relative;
       z-index: 1;
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: clamp(0.5rem, 1vw, 0.8rem);
+      gap: 0.8rem;
       padding: 0.5rem;
       flex-wrap: wrap;
     }
     nav a {
-      font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+      font-size: 0.95rem;
       color: #d1d5db;
       text-decoration: none;
       text-transform: uppercase;
@@ -65,15 +69,15 @@
       left: 0;
     }
     .content {
-      max-width: 1200px;
+      width: 1200px;
       margin: 0 auto;
-      padding: clamp(1rem, 2vw, 1.5rem) clamp(0.6rem, 1vw, 0.8rem);
+      padding: 1.5rem 0.8rem;
       position: relative;
       z-index: 1;
-      overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+      overflow-x: auto;
     }
     section {
-      margin-bottom: clamp(1.5rem, 3vw, 2rem);
+      margin-bottom: 2rem;
       opacity: 0;
       transform: translateY(20px);
       transition: opacity 0.3s ease, transform 0.4s ease;
@@ -84,60 +88,57 @@
     }
     #about h2,
     #work h2,
+    #resume h2,
     #contact h2 {
       text-align: center;
       width: 100%;
-      margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+      margin-bottom: 1rem;
     }
     #about {
       display: flex;
-      flex-direction: column; /* Stack heading and content vertically */
-      align-items: center; /* Center content */
+      flex-direction: column;
+      align-items: center;
       gap: 10px;
       text-align: left;
-      min-width: 700px; /* Ensure minimum width to fit image and text */
+      width: 100%;
     }
     #about .about-content {
       display: flex;
       align-items: center;
-      justify-content: center; /* Center the content */
+      justify-content: center;
       gap: 10px;
-      flex-wrap: nowrap; /* Prevent wrapping to keep layout constant */
+      flex-wrap: nowrap;
       width: 100%;
-      max-width: 700px; /* Constrain content width */
+      max-width: 700px;
     }
     #about p {
-      width: 500px; /* Fixed width for text */
-      font-size: 0.95rem; /* Fixed font size */
+      width: 500px;
+      font-size: 0.95rem;
       color: #d1d5db;
       padding: 0.8rem;
       background: rgba(30, 58, 138, 0.1);
       border-radius: 6px;
-      flex: 0 0 auto; /* Prevent flex shrinking or growing */
     }
     #about .photo-container {
-      position: relative;
-      flex: 0 0 auto; /* Fixed size, no shrinking or growing */
+      flex: 0 0 auto;
     }
     #about img.profile-photo {
-      width: 180px; /* Fixed width */
-      height: 180px; /* Fixed height */
+      width: 180px;
+      height: 180px;
       object-fit: cover;
-      position: relative;
-      z-index: 1;
       border-radius: 10px;
       box-shadow: 0 0 10px #1e3a8a;
     }
-    .work-grid {
+    #work .work-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 15px;
       justify-content: center;
       padding: 10px;
+      min-width: 900px; /* Pastikan 3 kolom tetap muat */
     }
     .work-item {
       width: 100%;
-      max-width: 300px;
       box-sizing: border-box;
     }
     .work-item img {
@@ -146,17 +147,10 @@
       display: block;
       border-radius: 8px;
     }
-    .work-item p, .work-item h3 {
+    .work-item p,
+    .work-item h3 {
       font-size: 1rem;
       margin-top: 8px;
-    }
-    @media (max-width: 480px) {
-      .work-item {
-        max-width: 150px;
-      }
-      .work-item p, .work-item h3 {
-        font-size: 0.85rem;
-      }
     }
     .project {
       position: relative;
@@ -168,7 +162,7 @@
     }
     .project img {
       width: 100%;
-      height: clamp(120px, 20vw, 160px);
+      height: 160px;
       object-fit: cover;
       display: block;
       loading: lazy;
@@ -179,8 +173,10 @@
     }
     .project-overlay {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.7);
       color: #d1d5db;
       display: flex;
@@ -199,7 +195,7 @@
       transform: translateY(-5px);
     }
     .project-overlay h3 {
-      font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+      font-size: 1.1rem;
       font-weight: 700;
       margin-bottom: 0.4rem;
     }
@@ -207,23 +203,41 @@
       color: #d1d5db;
       text-decoration: none;
       border: 1px solid #d1d5db;
-      padding: clamp(0.3rem, 0.8vw, 0.4rem) clamp(0.6rem, 1.2vw, 0.8rem);
+      padding: 0.4rem 0.8rem;
       border-radius: 4px;
       transition: background 0.3s ease;
-      font-size: clamp(0.7rem, 1.2vw, 0.85rem);
+      font-size: 0.85rem;
       display: inline-block;
       margin-top: 0.5rem;
     }
     .project-overlay a:hover {
       background: #1e3a8a;
     }
+    #resume p {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #d1d5db;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0.8rem;
+      background: rgba(30, 58, 138, 0.1);
+      border-radius: 6px;
+    }
+    #resume a {
+      color: #1e3a8a;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    #resume a:hover {
+      text-decoration: underline;
+    }
     #contact p {
       text-align: center;
-      font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+      font-size: 0.95rem;
       color: #d1d5db;
       max-width: 500px;
       margin: 0 auto;
-      padding: clamp(0.6rem, 1vw, 0.8rem);
+      padding: 0.8rem;
       background: rgba(30, 58, 138, 0.1);
       border-radius: 6px;
     }
@@ -237,19 +251,12 @@
     }
     footer {
       text-align: center;
-      padding: clamp(0.6rem, 1vw, 0.8rem);
+      padding: 0.8rem;
       background: #4b5563;
-      font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+      font-size: 0.75rem;
       color: #d1d5db;
       position: relative;
       z-index: 1;
-    }
-    /* Remove all responsive tweaks for #about */
-    @media (max-width: 768px) {
-      /* No changes to #about or .about-content */
-    }
-    @media (max-width: 480px) {
-      /* No changes to #about or .about-content */
     }
   </style>
 </head>
@@ -341,6 +348,10 @@
         </div>
       </div>
     </section>
+    <section id="resume">
+      <h2>Resume</h2>
+      <p>Download my resume to learn more about my experience and skills as a digital artist and designer. <a href="https://example.com/resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a></p>
+    </section>
     <section id="contact">
       <h2>Contact</h2>
       <p>Let's create something amazing together! Reach me at <a href="mailto:bangsuryajaya548@gmail.com">bangsuryajaya548@gmail.com</a> or on <a href="https://www.linkedin.com/in/bang-surya-jaya-5608ba251" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
@@ -354,7 +365,7 @@
   <script>
     particlesJS('particles-js', {
       particles: {
-        number: { value: 30, density: { enable: true, value_area: 800 } },
+        number: { value: 15, density: { enable: true, value_area: 800 } },
         color: { value: ['#00b7eb', '#7b2cbf', '#e0e0e0'] },
         shape: { type: 'circle', stroke: { width: 0 } },
         opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
