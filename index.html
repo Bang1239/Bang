@@ -70,6 +70,7 @@
       padding: clamp(1rem, 2vw, 1.5rem) clamp(0.6rem, 1vw, 0.8rem);
       position: relative;
       z-index: 1;
+      overflow-x: auto; /* Allow horizontal scrolling if content overflows */
     }
     section {
       margin-bottom: clamp(1.5rem, 3vw, 2rem);
@@ -90,48 +91,73 @@
     }
     #about {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column; /* Stack heading and content vertically */
+      align-items: center; /* Center content */
       gap: 10px;
-      flex-wrap: wrap;
       text-align: left;
+      min-width: 700px; /* Ensure minimum width to fit image and text */
+    }
+    #about .about-content {
+      display: flex;
+      align-items: center;
+      justify-content: center; /* Center the content */
+      gap: 10px;
+      flex-wrap: nowrap; /* Prevent wrapping to keep layout constant */
+      width: 100%;
+      max-width: 700px; /* Constrain content width */
     }
     #about p {
-      max-width: 500px;
-      font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+      width: 500px; /* Fixed width for text */
+      font-size: 0.95rem; /* Fixed font size */
       color: #d1d5db;
-      padding: clamp(0.6rem, 1vw, 0.8rem);
+      padding: 0.8rem;
       background: rgba(30, 58, 138, 0.1);
       border-radius: 6px;
-      flex: 1;
+      flex: 0 0 auto; /* Prevent flex shrinking or growing */
     }
     #about .photo-container {
       position: relative;
-      flex-shrink: 0;
+      flex: 0 0 auto; /* Fixed size, no shrinking or growing */
     }
     #about img.profile-photo {
-      width: clamp(120px, 18vw, 180px);
-      height: clamp(120px, 18vw, 180px);
+      width: 180px; /* Fixed width */
+      height: 180px; /* Fixed height */
       object-fit: cover;
       position: relative;
       z-index: 1;
       border-radius: 10px;
       box-shadow: 0 0 10px #1e3a8a;
     }
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  justify-content: center;
-}
-
-/* Optional: supaya di layar super kecil, tetap 3 kolom tapi ukuran kartu mengecil */
-@media (max-width: 360px) {
-  .work-grid {
-    grid-template-columns: repeat(3, minmax(80px, 1fr));
-  }
-}
-
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      justify-content: center;
+      padding: 10px;
+    }
+    .work-item {
+      width: 100%;
+      max-width: 300px;
+      box-sizing: border-box;
+    }
+    .work-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    .work-item p, .work-item h3 {
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+    @media (max-width: 480px) {
+      .work-item {
+        max-width: 150px;
+      }
+      .work-item p, .work-item h3 {
+        font-size: 0.85rem;
+      }
+    }
     .project {
       position: relative;
       overflow: hidden;
@@ -218,23 +244,12 @@
       position: relative;
       z-index: 1;
     }
-    /* Responsive tweaks */
+    /* Remove all responsive tweaks for #about */
     @media (max-width: 768px) {
-      #about {
-        justify-content: space-between;
-      }
-      #about p {
-        max-width: 100%;
-      }
+      /* No changes to #about or .about-content */
     }
     @media (max-width: 480px) {
-      #about {
-        gap: 8px;
-      }
-      #about img.profile-photo {
-        width: clamp(100px, 25vw, 120px);
-        height: clamp(100px, 25vw, 120px);
-      }
+      /* No changes to #about or .about-content */
     }
   </style>
 </head>
@@ -251,7 +266,7 @@
   <div class="content">
     <section id="about">
       <h2>About Me</h2>
-      <div style="display: flex; flex-direction: row-reverse; align-items: center; gap: 10px;">
+      <div class="about-content">
         <div class="photo-container">
           <img src="https://github.com/Bang1239/Bang/blob/main/file_0000000086fc61f89ce3c83ed261aee2__1_-removebg-preview.png?raw=true" alt="Bang Surya Jaya Profile Photo" class="profile-photo" loading="lazy" />
         </div>
@@ -376,7 +391,6 @@
       retina_detect: true
     });
 
-    // Smooth scrolling for nav links
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -388,7 +402,6 @@
       });
     });
 
-    // Fade-in animation for sections on scroll
     const sections = document.querySelectorAll('section');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
