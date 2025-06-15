@@ -1,224 +1,436 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Galaksi Bang Surya Jaya</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Bang Surya Jaya - Digital Artist & Designer</title>
+  <meta name="description" content="Explore the portfolio of Bang Surya Jaya, a talented digital artist and designer from Indonesia specializing in pixel art and immersive illustrations.">
+  <meta name="keywords" content="portofolio bang surya jaya, bang surya jaya, digital artist, pixel art, designer indonesia">
+  <meta name="author" content="Bang Surya Jaya">
+  <meta name="robots" content="index, follow">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #00ffff;
-      --bg-dark: #080b1d;
-      --text-light: #e0e0e0;
-      --text-dark: #202020;
-    }
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      scroll-behavior: smooth;
     }
     body {
       font-family: 'Roboto', sans-serif;
-      background: var(--bg-dark);
-      color: var(--text-light);
+      color: #d1d5db;
+      line-height: 1.6;
+      background: linear-gradient(135deg, #0a0a1a, #1a1a2e);
+      position: relative;
       overflow-x: hidden;
+      min-height: 100vh;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
     header {
       text-align: center;
-      padding: 60px 20px 40px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent);
-    }
-    header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3em;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glow 4s ease-in-out infinite alternate;
-    }
-    header p {
-      margin-top: 18px;
-      font-size: 1em;
-      color: #bbb;
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 1;
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      padding: 12px 10px;
-      background: rgba(0, 0, 0, 0.5);
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(12px);
-      z-index: 100;
+      gap: 1rem;
+      padding: 0.5rem 0;
+      position: relative;
+      z-index: 1;
+      flex-wrap: wrap;
     }
     nav a {
-      color: var(--primary);
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: #d1d5db;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95em;
-      padding: 4px 10px;
+      text-transform: uppercase;
+      font-weight: 400;
+      position: relative;
+      padding: 0.5rem;
     }
-    nav a:hover {
-      background-color: rgba(0,255,255,0.1);
-      border-radius: 6px;
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 50%;
+      background: #1e3a8a;
+      transition: width 0.3s ease, left 0.3s ease;
+    }
+    nav a:hover::after {
+      width: 100%;
+      left: 0;
+    }
+    .content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      position: relative;
+      z-index: 1;
     }
     section {
-      padding: 60px 20px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      justify-content: center;
+      margin-bottom: 3rem;
       opacity: 0;
       transform: translateY(20px);
-      transition: 0.8s ease;
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    section.active {
+    section.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .card {
-      background: rgba(255,255,255,0.05);
-      border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: 0.3s;
-      width: 280px;
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.1rem);
+      font-weight: 700;
+      color: #d1d5db;
+      margin-bottom: 1.5rem;
+      text-align: center;
     }
-    .card:hover {
-      transform: translateY(-6px);
-      background: rgba(255,255,255,0.08);
+    #about {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      text-align: left;
     }
-    .card h3 {
-      font-size: 1.2em;
-      margin-bottom: 10px;
+    #about p {
+      max-width: 500px;
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      color: #d1d5db;
+      padding: 1rem;
+      background: rgba(30, 58, 138, 0.1);
+      border-radius: 8px;
     }
-    .card p {
-      font-size: 0.95em;
-      color: #ccc;
+    #about .photo-container {
+      position: relative;
+      flex-shrink: 0;
     }
-    .card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: #00ffff;
-      font-weight: bold;
+    #about img.profile-photo {
+      width: clamp(180px, 25vw, 250px);
+      height: clamp(180px, 25vw, 250px);
+      object-fit: cover;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 30vw, 270px), 1fr));
+      gap: 15px;
+      justify-content: center;
+    }
+    .project {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #4b5563;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+    .project img {
+      width: 100%;
+      height: clamp(150px, 25vw, 190px);
+      object-fit: cover;
+      display: block;
+      loading: lazy;
+    }
+    .project-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      color: #d1d5db;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .project:hover .project-overlay {
+      opacity: 1;
+    }
+    .project:hover {
+      transform: translateY(-5px);
+    }
+    .project-overlay h3 {
+      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .project-overlay a {
+      color: #d1d5db;
+      text-decoration: none;
+      border: 1px solid #d1d5db;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      font-size: clamp(0.9rem, 1.5vw, 1rem);
+    }
+    .project-overlay a:hover {
+      background: #1e3a8a;
+    }
+    #contact p {
+      text-align: center;
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      color: #d1d5db;
+      max-width: 550px;
+      margin: 0 auto;
+      padding: 1rem;
+      background: rgba(30, 58, 138, 0.1);
+      border-radius: 8px;
+    }
+    #contact a {
+      color: #1e3a8a;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    #contact a:hover {
       text-decoration: underline;
     }
     footer {
       text-align: center;
-      padding: 30px 10px;
-      background: #0d0d0d;
-      color: #aaa;
-      font-size: 0.9em;
+      padding: 1rem;
+      background: #4b5563;
+      font-size: clamp(0.8rem, 1.5vw, 0.85rem);
+      color: #d1d5db;
+      position: relative;
+      z-index: 1;
     }
-    canvas {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      z-index: -1;
+    @media (max-width: 1024px) {
+      .content {
+        padding: 1.5rem 1rem;
+      }
     }
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #0ff; }
-      to { text-shadow: 0 0 25px #0ff, 0 0 50px #0072ff; }
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem 1rem;
+      }
+      nav {
+        gap: 0.5rem;
+      }
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.3rem;
+      }
+      #about {
+        flex-direction: column;
+        text-align: center;
+      }
+      #about p {
+        max-width: 100%;
+      }
+      #about img.profile-photo {
+        width: clamp(150px, 40vw, 180px);
+        height: clamp(150px, 40vw, 180px);
+      }
+      .project img {
+        height: clamp(120px, 20vw, 150px);
+      }
+    }
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 1.5rem;
+      }
+      .work-grid {
+        grid-template-columns: 1fr;
+      }
+      .project img {
+        height: clamp(140px, 30vw, 170px);
+      }
+      .project-overlay h3 {
+        font-size: 1rem;
+      }
+      .project-overlay a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
 <body>
-  <canvas id="stars"></canvas>
+  <div id="particles-js"></div>
   <header>
-    <h1>Galaksi Imajinasi 3.0</h1>
-    <p>Portal eksplorasi AI, game, dan teknologi dalam satu dimensi baru.</p>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
-  <nav>
-    <a href="halaman/portal.html">Portal</a>
-    <a href="halaman/ai.html">AI</a>
-    <a href="halaman/game.html">Game</a>
-    <a href="halaman/sinyal.html">Sinyal</a>
-  </nav>
-
-  <section class="active">
-    <div class="card">
-      <h3>🚀 Portal Dimensi</h3>
-      <p>Melompat antar dunia dalam sekali klik.</p>
-      <a href="halaman/portal.html">Masuk Portal</a>
-    </div>
-    <div class="card">
-      <h3>🌀 Efek Warp</h3>
-      <p>Simulasi space-time seperti film fiksi ilmiah.</p>
-      <a href="halaman/portal.html#w">Coba Warp</a>
-    </div>
-    <div class="card">
-      <h3>🤖 Chat AI</h3>
-      <p>Berinteraksi langsung dengan AI pintar.</p>
-      <a href="halaman/ai.html">Chat Sekarang</a>
-    </div>
-    <div class="card">
-      <h3>🎨 Generator Gambar</h3>
-      <p>Ketik kata, hasilkan visual otomatis.</p>
-      <a href="halaman/ai.html#gen">Coba Generator</a>
-    </div>
-    <div class="card">
-      <h3>🎮 Galactic Memory</h3>
-      <p>Permainan luar angkasa uji ingatanmu.</p>
-      <a href="halaman/game.html">Mainkan</a>
-    </div>
-    <div class="card">
-      <h3>📡 Sinyal Misterius</h3>
-      <p>Deteksi pesan dari kosmos tiap malam.</p>
-      <a href="halaman/sinyal.html">Deteksi Sekarang</a>
-    </div>
-  </section>
-
+  <div class="content">
+    <section id="about">
+      <h2>About Me</h2>
+      <div style="display: flex; flex-direction: row-reverse; align-items: center; gap: 10px;">
+        <div class="photo-container">
+          <img src="https://github.com/Bang1239/Bang/blob/main/file_0000000086fc61f89ce3c83ed261aee2__1_-removebg-preview.png?raw=true" alt="Bang Surya Jaya Profile Photo" class="profile-photo" loading="lazy">
+        </div>
+        <p>I'm Bang Surya Jaya, a dedicated digital artist and designer from Indonesia. Specializing in pixel art and immersive illustrations, I create bold and innovative designs that push creative boundaries. My portfolio showcases my expertise in delivering visually impactful artwork. Explore my portfolio to see my latest projects.</p>
+      </div>
+    </section>
+    <section id="work">
+      <h2>My Work</h2>
+      <div class="work-grid">
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2022/06/23/17/08/pixel-art-7280249_1280.png" alt="Pixel Cityscape by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>Pixel Cityscape</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2025/05/10/15/40/bear-9591466_1280.jpg" alt="Bear Illustration by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>Bear Illustration</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2024/04/18/08/05/girl-8703774_1280.png" alt="Character Portrait by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>Character Portrait</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2023/02/04/14/18/underwater-7767303_1280.jpg" alt="Underwater Scene by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>Underwater Scene</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2025/04/26/19/45/mount-fuji-9561799_1280.jpg" alt="Mount Fuji Landscape by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>Mount Fuji Landscape</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2025/05/02/07/28/panorama-9573161_1280.jpg" alt="City Panorama by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>City Panorama</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2023/03/12/08/02/astronaut-7846067_1280.jpg" alt="Astronaut Illustration by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>Astronaut Illustration</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2024/12/18/10/10/tree-9274973_1280.png" alt="Stylized Tree Art by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>Stylized Tree Art</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+        <div class="project">
+          <img src="https://cdn.pixabay.com/photo/2025/03/30/13/01/fairy-tale-9502808_1280.jpg" alt="Fairy Tale Scene by Bang Surya Jaya" loading="lazy">
+          <div class="project-overlay">
+            <h3>Fairy Tale Scene</h3>
+            <a href="#">View Project</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Let's create something amazing together! Reach me at <a href="mailto:bangsuryajaya548@gmail.com">bangsuryajaya548@gmail.com</a> or on <a href="https://www.linkedin.com/in/bang-surya-jaya-5608ba251" target="_blank">LinkedIn</a>.</p>
+    </section>
+  </div>
   <footer>
-    <p>&copy; 2025 Galaksi Imajinasi 3.0 - Dibuat oleh AI</p>
+    <p>© 2025 Bang Surya Jaya. All rights reserved.</p>
   </footer>
-
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    const canvas = document.getElementById('stars');
-    const ctx = canvas.getContext('2d');
-    let stars = [];
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    function initStars() {
-      stars = [];
-      for (let i = 0; i < 400; i++) {
-        stars.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          r: Math.random() * 1.2,
-          a: Math.random(),
-          dx: (Math.random() - 0.5) * 0.3,
-          dy: (Math.random() - 0.5) * 0.3
-        });
-      }
-    }
-    function drawStars() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      stars.forEach(s => {
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${s.a})`;
-        ctx.fill();
-        s.x += s.dx;
-        s.y += s.dy;
-        if (s.x < 0 || s.x > canvas.width) s.dx *= -1;
-        if (s.y < 0 || s.y > canvas.height) s.dy *= -1;
-      });
-    }
-    function animate() {
-      drawStars();
-      requestAnimationFrame(animate);
-    }
-    resizeCanvas();
-    initStars();
-    animate();
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      initStars();
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 60, density: { enable: true, value_area: 800 } },
+        color: { value: ['#00b7eb', '#7b2cbf', '#e0e0e0'] },
+        shape: { type: 'circle', stroke: { width: 0 } },
+        opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
+        size: { value: 3, random: true },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#00b7eb',
+          opacity: 0.2,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: { enable: true, mode: 'grab' },
+          onclick: { enable: true, mode: 'push' },
+          resize: true
+        },
+        modes: {
+          grab: { distance: 200, line_linked: { opacity: 0.3 } },
+          push: { particles_nb: 4 }
+        }
+      },
+      retina_detect: true
     });
+
+    // Smooth scrolling for nav links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Fade-in animation for sections on scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Bang Surya Jaya",
+      "jobTitle": "Digital Artist and Designer",
+      "description": "Bang Surya Jaya is a digital artist and designer from Indonesia, specializing in pixel art and immersive illustrations.",
+      "url": "https://bangsuryajaya.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/bang-surya-jaya-5608ba251"
+      ],
+      "image": "https://github.com/Bang1239/Bang/blob/main/file_0000000086fc61f89ce3c83ed261aee2__1_-removebg-preview.png?raw=true",
+      "email": "bangsuryajaya548@gmail.com"
+    }
   </script>
 </body>
 </html>
