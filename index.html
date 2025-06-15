@@ -118,12 +118,20 @@
       border-radius: 10px;
       box-shadow: 0 0 10px #1e3a8a;
     }
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 25vw, 250px), 1fr));
-      gap: 15px;
-      justify-content: center;
-    }
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Optional: supaya di layar super kecil, tetap 3 kolom tapi ukuran kartu mengecil */
+@media (max-width: 360px) {
+  .work-grid {
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+  }
+}
+
     .project {
       position: relative;
       overflow: hidden;
