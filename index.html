@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio Bang Surya Jaya - Digital Artist & Designer</title>
-  <meta name="description" content="Explore the portfolio of Bang Surya Jaya, a talented digital artist and designer from Indonesia specializing in pixel art and immersive illustrations.">
+  <meta name="description" content="Portfolio of Bang Surya Jaya, a talented digital artist and designer from Indonesia specializing in pixel art and immersive illustrations.">
   <meta name="keywords" content="portofolio bang surya jaya, bang surya jaya, digital artist, pixel art, designer indonesia">
   <meta name="author" content="Bang Surya Jaya">
   <meta name="robots" content="index, follow">
@@ -19,7 +19,7 @@
       font-family: 'Roboto', sans-serif;
       color: #d1d5db;
       line-height: 1.6;
-      background: linear-gradient(135deg, #0a0a1a, #1a1a2e);
+      background: linear-gradient(to bottom, #0a0a1a, #1a1a2e);
       position: relative;
       overflow-x: hidden;
       min-height: 100vh;
@@ -34,27 +34,25 @@
     }
     header {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: clamp(1rem, 2vw, 1.5rem);
       position: relative;
       z-index: 1;
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      padding: 0.5rem 0;
-      position: relative;
-      z-index: 1;
+      gap: clamp(0.5rem, 1vw, 0.8rem);
+      padding: 0.5rem;
       flex-wrap: wrap;
     }
     nav a {
-      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-size: clamp(0.8rem, 1.8vw, 0.95rem);
       color: #d1d5db;
       text-decoration: none;
       text-transform: uppercase;
       font-weight: 400;
       position: relative;
-      padding: 0.5rem;
+      padding: 0.4rem;
     }
     nav a::after {
       content: '';
@@ -73,72 +71,73 @@
     .content {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: clamp(1rem, 2vw, 1.5rem) clamp(0.6rem, 1vw, 0.8rem);
       position: relative;
       z-index: 1;
     }
     section {
-      margin-bottom: 3rem;
+      margin-bottom: clamp(1.5rem, 3vw, 2rem);
       opacity: 0;
       transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.3s ease, transform 0.4s ease;
     }
     section.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    h2 {
-      font-size: clamp(1.8rem, 4vw, 2.1rem);
-      font-weight: 700;
-      color: #d1d5db;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
+#about h2,
+#work h2,
+#contact h2 {
+  text-align: center;
+  width: 100%;
+  margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+
     #about {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       gap: 10px;
       flex-wrap: wrap;
       text-align: left;
     }
     #about p {
       max-width: 500px;
-      font-size: clamp(1rem, 2vw, 1.1rem);
+      font-size: clamp(0.8rem, 1.6vw, 0.95rem);
       color: #d1d5db;
-      padding: 1rem;
+      padding: clamp(0.6rem, 1vw, 0.8rem);
       background: rgba(30, 58, 138, 0.1);
-      border-radius: 8px;
+      border-radius: 6px;
+      flex: 1;
     }
     #about .photo-container {
       position: relative;
       flex-shrink: 0;
     }
     #about img.profile-photo {
-      width: clamp(180px, 25vw, 250px);
-      height: clamp(180px, 25vw, 250px);
+      width: clamp(120px, 18vw, 180px);
+      height: clamp(120px, 18vw, 180px);
       object-fit: cover;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
       position: relative;
       z-index: 1;
     }
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 30vw, 270px), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(clamp(200px, 25vw, 250px), 1fr));
       gap: 15px;
       justify-content: center;
     }
     .project {
       position: relative;
       overflow: hidden;
-      border-radius: 8px;
+      border-radius: 6px;
       background: #4b5563;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       transition: transform 0.3s ease;
     }
     .project img {
       width: 100%;
-      height: clamp(150px, 25vw, 190px);
+      height: clamp(120px, 20vw, 160px);
       object-fit: cover;
       display: block;
       loading: lazy;
@@ -165,31 +164,31 @@
       transform: translateY(-5px);
     }
     .project-overlay h3 {
-      font-size: clamp(1.1rem, 2vw, 1.3rem);
+      font-size: clamp(0.9rem, 1.6vw, 1.1rem);
       font-weight: 700;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
     .project-overlay a {
       color: #d1d5db;
       text-decoration: none;
       border: 1px solid #d1d5db;
-      padding: 0.5rem 1rem;
+      padding: clamp(0.3rem, 0.8vw, 0.4rem) clamp(0.6rem, 1.2vw, 0.8rem);
       border-radius: 4px;
       transition: background 0.3s ease;
-      font-size: clamp(0.9rem, 1.5vw, 1rem);
+      font-size: clamp(0.7rem, 1.2vw, 0.85rem);
     }
     .project-overlay a:hover {
       background: #1e3a8a;
     }
     #contact p {
       text-align: center;
-      font-size: clamp(1rem, 2vw, 1.1rem);
+      font-size: clamp(0.8rem, 1.6vw, 0.95rem);
       color: #d1d5db;
-      max-width: 550px;
+      max-width: 500px;
       margin: 0 auto;
-      padding: 1rem;
+      padding: clamp(0.6rem, 1vw, 0.8rem);
       background: rgba(30, 58, 138, 0.1);
-      border-radius: 8px;
+      border-radius: 6px;
     }
     #contact a {
       color: #1e3a8a;
@@ -201,60 +200,29 @@
     }
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: clamp(0.6rem, 1vw, 0.8rem);
       background: #4b5563;
-      font-size: clamp(0.8rem, 1.5vw, 0.85rem);
+      font-size: clamp(0.6rem, 1.2vw, 0.75rem);
       color: #d1d5db;
       position: relative;
       z-index: 1;
     }
-    @media (max-width: 1024px) {
-      .content {
-        padding: 1.5rem 1rem;
-      }
-    }
+    /* Minimal media queries to maintain consistent layout */
     @media (max-width: 768px) {
-      header {
-        padding: 1.5rem 1rem;
-      }
-      nav {
-        gap: 0.5rem;
-      }
-      nav a {
-        font-size: 0.9rem;
-        padding: 0.3rem;
-      }
       #about {
-        flex-direction: column;
-        text-align: center;
+        justify-content: space-between;
       }
       #about p {
         max-width: 100%;
       }
-      #about img.profile-photo {
-        width: clamp(150px, 40vw, 180px);
-        height: clamp(150px, 40vw, 180px);
-      }
-      .project img {
-        height: clamp(120px, 20vw, 150px);
-      }
     }
     @media (max-width: 480px) {
-      h2 {
-        font-size: 1.5rem;
+      #about {
+        gap: 8px;
       }
-      .work-grid {
-        grid-template-columns: 1fr;
-      }
-      .project img {
-        height: clamp(140px, 30vw, 170px);
-      }
-      .project-overlay h3 {
-        font-size: 1rem;
-      }
-      .project-overlay a {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.85rem;
+      #about img.profile-photo {
+        width: clamp(100px, 25vw, 120px);
+        height: clamp(100px, 25vw, 120px);
       }
     }
   </style>
@@ -263,8 +231,8 @@
   <div id="particles-js"></div>
   <header>
     <nav>
-      <a href="#work">Work</a>
       <a href="#about">About</a>
+      <a href="#work">Work</a>
       <a href="#resume">Resume</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -276,7 +244,7 @@
         <div class="photo-container">
           <img src="https://github.com/Bang1239/Bang/blob/main/file_0000000086fc61f89ce3c83ed261aee2__1_-removebg-preview.png?raw=true" alt="Bang Surya Jaya Profile Photo" class="profile-photo" loading="lazy">
         </div>
-        <p>I'm Bang Surya Jaya, a dedicated digital artist and designer from Indonesia. Specializing in pixel art and immersive illustrations, I create bold and innovative designs that push creative boundaries. My portfolio showcases my expertise in delivering visually impactful artwork. Explore my portfolio to see my latest projects.</p>
+        <p>I am Bang Surya Jaya, a dedicated digital artist and designer from Indonesia. Specializing in pixel art and immersive illustrations, I create bold and innovative designs that push creative boundaries. My portfolio showcases my expertise in delivering visually impactful artwork. Explore my portfolio to see my latest projects.</p>
       </div>
     </section>
     <section id="work">
@@ -359,7 +327,7 @@
   <script>
     particlesJS('particles-js', {
       particles: {
-        number: { value: 60, density: { enable: true, value_area: 800 } },
+        number: { value: 30, density: { enable: true, value_area: 800 } },
         color: { value: ['#00b7eb', '#7b2cbf', '#e0e0e0'] },
         shape: { type: 'circle', stroke: { width: 0 } },
         opacity: { value: 0.4, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1 } },
@@ -384,7 +352,7 @@
       interactivity: {
         detect_on: 'canvas',
         events: {
-          onhover: { enable: true, mode: 'grab' },
+          onhover: { enable: false, mode: 'grab' },
           onclick: { enable: true, mode: 'push' },
           resize: true
         },
